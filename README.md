@@ -9,11 +9,11 @@ Me: <a href="https://x.com/igorfeelippov"><img alt="X account" src="https://img.
 
 ## Why you should use it :yum:
 
-1. Easy installation!
+1. Easy installation with CPU support by default.
 2. Automatic checkpoint downloading.
 3. Generic class to either import in Jupyter or to run on a video/images.
 4. Code that is easy to read and modify.
-5. Choose GPU for multi-gpu inference!
+5. Choose CPU or GPU, including a specific GPU for multi-gpu inference!
 6. Custom drawing functions: convenient interface for modifying *how* you draw skeletons.
 
 ## Installation
@@ -23,6 +23,9 @@ Me: <a href="https://x.com/igorfeelippov"><img alt="X account" src="https://img.
 ```bash
 pip install easy-dwpose
 ```
+
+This installs the CPU-compatible `onnxruntime` package by default.
+If you want GPU acceleration, install a compatible GPU runtime yourself and pass a CUDA device such as `cuda:0`.
 
 ### From source
 

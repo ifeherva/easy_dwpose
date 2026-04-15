@@ -10,11 +10,17 @@ class Wholebody:
 
     def __init__(self, model_det, model_pose, device="cpu"):
         device = str(device)
+        available_providers = onnxruntime.get_available_providers()
 
         if device == "cpu":
             providers = ["CPUExecutionProvider"]
             provider_options = None
         else:
+            if "CUDAExecutionProvider" not in available_providers:
+                raise RuntimeError(
+                    "CUDAExecutionProvider is not available in this onnxruntime installation. "
+                    "Use device='cpu' or install a GPU-capable ONNX Runtime build."
+                )
             providers = ["CUDAExecutionProvider"]
             if ":" in device:
                 gpu_id = int(device.split(":")[1])
