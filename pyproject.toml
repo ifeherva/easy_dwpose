@@ -1,8 +1,10 @@
-[tool.poetry]
+[project]
 name = "easy_dwpose"
 version = "1.0.3"
 description = ""
-authors = []
+dynamic = ["dependencies"]
+readme = "README.md"
+requires-python = ">=3.9"
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -17,7 +19,7 @@ imageio = "^2.9.0"
 huggingface_hub = "^0.24.6"
 matplotlib = "^3.9.2"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "^6.2.5"
 
 [build-system]
